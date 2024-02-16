@@ -1,3 +1,10 @@
+<style>
+    /* Ändern des aktiven Farbstils für Dropdown-Elemente */
+    .dropdown-item:active {
+        background-color: #ecad1b; /* Gelber Hintergrund */
+        color: #000; /* Optional: Ändern der Textfarbe, falls gewünscht */
+    }
+</style>
 <!-- Kategorien in der schwarzen Leiste darunter -->
 <div class="bg-dark">
     <div class="container">

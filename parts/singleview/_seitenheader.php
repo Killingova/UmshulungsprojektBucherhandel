@@ -2,9 +2,10 @@
     <div class="container-fluid">
         <!-- Oberste Zeile mit Slogan und Nutzer-Links -->
         <div class="navbar-header w-100 d-flex justify-content-between align-items-center">
-            <div class="navbar-text text-light flex-grow-1">
-Wosny.net – Ihr Spezialist für Bücher und mehr!
-            </div>
+            <a href="/" class="navbar-text text-light flex-grow-1" style="text-decoration: none; color: inherit;">
+                <div class="navbar-text text-light flex-grow-1">
+                    Wosny.net – Ihr Spezialist für Bücher und mehr!
+                </div>
             <div class="navbar-nav">
                 <a class="nav-link text-light" href="#">Ihr Konto</a>
                 <a class="nav-link text-light" href="#">Newsletter</a>
@@ -43,10 +44,7 @@ Wosny.net – Ihr Spezialist für Bücher und mehr!
                     <!-- Ende des Formular-Tags -->
                 </div>
                 <div class="modal-footer bg-dark">
-                    <span class="text-white">Ich möchte ein Konto anlegen</span>
-                    <form action="register.php" method="get" style="display: inline;">
-                        <button type="submit" class="btn btn-outline-light">Konto anlegen</button>
-                    </form>
+                    <span class="text-white">Ich möchte ein <a href="/parts/singleview/_register.php" class="btn btn-outline-light" style="text-decoration: none; color: inherit;">Konto anlegen</a></span>
                 </div>
             </div>
         </div>

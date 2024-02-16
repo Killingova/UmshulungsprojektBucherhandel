@@ -18,9 +18,15 @@
     <div class="container-fluid">
         <!-- Oberste Zeile mit Slogan und Nutzer-Links -->
         <div class="navbar-header w-100 d-flex justify-content-between align-items-center">
-            <div class="navbar-text text-light flex-grow-1">
-                Wosny.net – Ihr Spezialist für Bücher und mehr!
-            </div>
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="/">
+                <img src="parts/singleview/img/logo.webp" alt="Logo" style="height: 60px;"> <!-- Größe des Logos erhöht -->
+                <!-- Slogan neben dem Logo -->
+                <span class="navbar-text text-light ms-3">
+            Wosny.net – Ihr Spezialist für Bücher und mehr!
+        </span>
+            </a>
+        </div>
             <div class="navbar-nav">
                 <a class="nav-link text-light" href="#">Ihr Konto</a>
                 <a class="nav-link text-light" href="#">Newsletter</a>
@@ -29,48 +35,10 @@
             </div>
         </div>
     </div>
-    <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title" id="loginModalLabel">Anmelden</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Schließen">
-                        <span aria-hidden="true" class="text-white">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body bg-dark text-white">
-                    <form>
-                        <div class="mb-3">
-                            <input type="radio" id="customerType" name="userType" value="customer" checked>
-                            <label for="customerType" class="mr-2">Kunde</label>
-                            <input type="radio" id="businessType" name="userType" value="business">
-                            <label for="businessType">Unternehmen</label>
-                        </div>
-                        <div class="form-group">
-                            <label for="emailInput">E-Mail</label>
-                            <input type="email" class="form-control" id="emailInput" placeholder="E-Mail eingeben">
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordInput">Passwort</label>
-                            <input type="password" class="form-control" id="passwordInput" placeholder="Passwort">
-                        </div>
-                        <button type="submit" class="btn btn-warning btn-block">Anmelden</button>
-                    </form>
-                </div>
-                <div class="modal-footer bg-dark">
-                    <span class="text-white">Ich möchte ein Konto anlegen</span>
-                    <button type="button" class="btn btn-outline-light">Konto anlegen</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="#">
-            <img src="img/logo.webp" alt="Logo" style="height: 50px;">
-        </a>
         <!-- Toggler für kleinere Bildschirme -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -410,6 +378,6 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</div>
+
 </body>
 </html>

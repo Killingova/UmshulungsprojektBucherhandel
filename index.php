@@ -9,7 +9,7 @@ $title = $view['title'];
 
 include $pf . '_header.php';
 include $pf . '_seitenheader.php';
-include $pf . '_register.php';
+
 include $pf . '_navsuchfeld.php';
 include $pf . '_navkategorien.php';
 include $view['template'];

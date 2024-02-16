@@ -13,7 +13,7 @@ function getRoute(){
         case 'single':
             return getConfig()['pages']['single'];
         case 'register':
-            return getConfig()['pages']['register'];
+            return getConfig()['register']['main'];
         default:
             return getConfig()['pages']['main'];
     }

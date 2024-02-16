@@ -44,9 +44,13 @@
                     <!-- Ende des Formular-Tags -->
                 </div>
                 <div class="modal-footer bg-dark">
-                    <span class="text-white">Ich möchte ein <a href="/parts/singleview/_register.php" class="btn btn-outline-light" style="text-decoration: none; color: inherit;">Konto anlegen</a></span>
+    <span class="text-white">Ich möchte ein
+        <a href="parts/register/_register.php" class="btn btn-outline-light" role="button" aria-pressed="true" style="text-decoration: none;">Konto anlegen</a>
+    </span>
                 </div>
+
             </div>
+
         </div>
     </div>
 

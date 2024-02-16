@@ -4,9 +4,10 @@ function getConfig(){
     $pf = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'parts' . DIRECTORY_SEPARATOR;
     $maintemplate = $pf . 'mainview' . DIRECTORY_SEPARATOR . 'main.php';
     $singletemplate = $pf . 'singleview' . DIRECTORY_SEPARATOR . 'main.php';
-    $registertemplate = $pf . 'mainview' . DIRECTORY_SEPARATOR . '_registerform.php'; // Pfad zu deiner Registrierungsformular-Datei
+    // Korrekter Pfad zur Registrierungsformular-Datei
+    $registertemplate = $pf . 'register' . DIRECTORY_SEPARATOR . '_register.php';
 
-    return  [
+    return [
         'general' => [
             'templatePath' => $pf
         ],
@@ -19,9 +20,9 @@ function getConfig(){
                 'title' => 'Ein Einzelartikel',
                 'template' => $singletemplate,
             ],
-            'register' => [ // Hier fügst du die Konfiguration für die Registrierungsseite hinzu
+            'register' => [
                 'title' => 'Registrierung',
-                'template' => $registertemplate,
+                'template' => $registertemplate, // Korrekte Verwendung der Variable
             ],
             // Füge weitere Seiten nach Bedarf hinzu...
         ],

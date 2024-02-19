@@ -45,12 +45,9 @@
                 </div>
                 <div class="modal-footer bg-dark">
     <span class="text-white">Ich möchte ein
-        <a href="parts/register/_register.php" class="btn btn-outline-light" role="button" aria-pressed="true" style="text-decoration: none;">Konto anlegen</a>
+        <a href="index.php?modul=sing-in" class="btn btn-outline-light" role="button" aria-pressed="true" style="text-decoration: none;">Konto anlegen</a>
     </span>
                 </div>
-
-            </div>
-
         </div>
     </div>
 

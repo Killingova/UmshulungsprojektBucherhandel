@@ -12,8 +12,6 @@ function getRoute(){
             return getConfig()['pages']['main'];
         case 'single':
             return getConfig()['pages']['single'];
-        case 'register':
-            return getConfig()['register']['main'];
         default:
             return getConfig()['pages']['main'];
     }

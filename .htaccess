@@ -1,0 +1,26 @@
+# Aktiviert die RewriteEngine von Apache, die für die Umleitung von URLs benötigt wird
+RewriteEngine On
+
+# Setzt den Basispfad für die Rewrite-Regeln. Dies ist nützlich, wenn Ihre Anwendung
+# sich in einem Unterverzeichnis befindet und nicht im Root-Verzeichnis des Servers.
+RewriteBase /UmshulungsprojektBucherhandel/
+
+# Eine spezifische Regel, die Anfragen an index.php nicht weiter umleitet, um
+# Endlosschleifen zu vermeiden. Das Flag [L] bedeutet, dass dies die letzte Regel ist,
+# die in diesem Durchlauf angewandt wird, wenn die Regel übereinstimmt.
+RewriteRule ^index\.php$ - [L]
+
+# Prüft, ob die angeforderte Datei nicht als physische Datei auf dem Server existiert.
+# Wenn die Bedingung wahr ist (d.h., die Datei existiert nicht), wird die folgende Regel angewendet.
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Prüft, ob die angeforderte Ressource nicht als Verzeichnis auf dem Server existiert.
+# Wenn auch diese Bedingung wahr ist (d.h., das Verzeichnis existiert nicht), wird die folgende Regel angewendet.
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Leitet alle Anfragen, die nicht auf existierende Dateien oder Verzeichnisse verweisen,
+# an die index.php im angegebenen Verzeichnis um. Dies ermöglicht eine zentrale Verarbeitung
+# aller Anfragen durch ein einziges Eingangsskript (Front Controller Pattern).
+# Das Flag [L] bedeutet wiederum, dass dies die letzte Regel ist, die angewandt wird,
+# wenn die Regel übereinstimmt.
+RewriteRule . /UmshulungsprojektBucherhandel/index.php [L]

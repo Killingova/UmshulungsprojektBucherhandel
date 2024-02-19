@@ -1,10 +1,13 @@
 <?php
 
+// Inkludiere die Datenbankverbindungsdatei
+global $con;
 require("connection.php");
 
+// Überprüfe, ob das Formular abgesendet wurde
 if (isset($_POST["submit"])) {
-    // Validiere und desinfiziere Eingaben (Beispiel für eine einfache Desinfektion)
-    $accountType = filter_var($_POST["account_type"], FILTER_SANITIZE_STRING); // Neues Feld
+    // Validiere und bereinige Eingaben
+    $accountType = filter_var($_POST["account_type"], FILTER_SANITIZE_STRING);
     $anrede = filter_var($_POST["anrede"], FILTER_SANITIZE_STRING);
     $titel = filter_var($_POST["titel"], FILTER_SANITIZE_STRING);
     $vorname = filter_var($_POST["vorname"], FILTER_SANITIZE_STRING);
@@ -18,6 +21,7 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
     $passwordRepeat = $_POST["passwordRepeat"];
 
+    // Überprüfe, ob die Passwörter übereinstimmen
     if ($password !== $passwordRepeat) {
         die("Die Passwörter stimmen nicht überein!");
     }
@@ -26,21 +30,39 @@ if (isset($_POST["submit"])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Prüfe, ob der Benutzer bereits existiert
-    $stmt = $con->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
-    $stmt->bindParam(":email", $email);
-    $stmt->execute();
-    $userAlreadyExists = $stmt->fetchColumn() > 0;
+    $stmt = $con->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
+    if (!$stmt) {
+        die("Prepare failed: (" . $con->errno . ") " . $con->error);
+    }
 
-    if (!$userAlreadyExists) {
-        // Benutzer registrieren
+    $stmt->bind_param("s", $email);
+    if (!$stmt->execute()) {
+        die("Execute failed: (" . $stmt->errno . ") " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+    $userCount = $result->fetch_row()[0];
+
+    if ($userCount == 0) {
+        // Benutzer existiert noch nicht, füge ihn hinzu
         $stmt = $con->prepare("INSERT INTO users (account_type, anrede, titel, vorname, nachname, firma, strasse, hausnummer, plz, ort, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$accountType, $anrede, $titel, $vorname, $nachname, $firma, $strasse, $hausnummer, $plz, $ort, $email, $hashedPassword]);
-        if ($stmt->rowCount() > 0) {
+        if (!$stmt) {
+            die("Prepare failed: (" . $con->errno . ") " . $con->error);
+        }
+
+        $stmt->bind_param("ssssssssssss", $accountType, $anrede, $titel, $vorname, $nachname, $firma, $strasse, $hausnummer, $plz, $ort, $email, $hashedPassword);
+
+        if ($stmt->execute()) {
             echo "Registrierung erfolgreich!";
         } else {
             echo "Es gab ein Problem bei der Registrierung. Bitte versuchen Sie es erneut.";
         }
     } else {
+        // Benutzer existiert bereits
         echo "Ein Benutzer mit dieser E-Mail existiert bereits.";
     }
+
+    // Schließe die vorbereiteten Anweisungen und die Datenbankverbindung
+    $stmt->close();
+    $con->close();
 }

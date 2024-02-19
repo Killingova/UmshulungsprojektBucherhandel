@@ -11,19 +11,19 @@
             <!-- Bilder Wrapper -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/Buch1.webp" class="d-block w-100" alt="Bild 1">
+                    <img src="/assets/img/Buch1.webp" class="d-block w-100" alt="Bild 1">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Buch2.webp" class="d-block w-100" alt="Bild 2">
+                    <img src="/assets/img/Buch2.webp" class="d-block w-100" alt="Bild 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Buch4.webp" class="d-block w-100" alt="Bild 3">
+                    <img src="/assets/img/Buch4.webp" class="d-block w-100" alt="Bild 3">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Buch5.webp" class="d-block w-100" alt="Bild 4">
+                    <img src="/assets/img/Buch5.webp" class="d-block w-100" alt="Bild 4">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Buch6.webp" class="d-block w-100" alt="Bild 5">
+                    <img src="/assets/img/Buch6.webp" class="d-block w-100" alt="Bild 5">
                 </div>
             </div>
         </div>

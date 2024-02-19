@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <div class="container my-5">
     <div class="bg-dark text-white p-4 rounded">
         <h2 class="text-center mb-4">Ich möchte ein Konto anlegen</h2>
